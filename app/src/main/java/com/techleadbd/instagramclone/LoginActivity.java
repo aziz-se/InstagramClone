@@ -1,15 +1,13 @@
 package com.techleadbd.instagramclone;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -47,14 +45,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btnLoginActivity:
                 if (edtLoginEmail.getText().toString().equals("") ||
                         edtLoginPassword.getText().toString().equals("")) {
-                    Toast.makeText(LoginActivity.this, "Email && Password are required", Toast.LENGTH_LONG).show();
-                } else{
+
+                    FancyToast.makeText(LoginActivity.this,"email & password are required.", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                }
+                else{
                     ParseUser.logInInBackground(edtLoginEmail.getText().toString(), edtLoginPassword.getText().toString(), new LogInCallback() {
                         @Override
                         public void done(ParseUser user, ParseException e) {
                             if (user != null && e == null) {
-                                Toast.makeText(LoginActivity.this, user.getUsername()+"is logged in successfully",Toast.LENGTH_SHORT).show();
-                                //FancyToast.makeText(LoginActivity.this, user.getUsername() + "is logged in successfully", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true);
+                                FancyToast.makeText(LoginActivity.this, user.getUsername() + "is logged in successfully", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
                                 transitionToSocialMediaActivity();
                             }
                         }

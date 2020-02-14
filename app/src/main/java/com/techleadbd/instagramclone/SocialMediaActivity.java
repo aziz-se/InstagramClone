@@ -19,7 +19,7 @@ public class SocialMediaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social_media);
 
-        setTitle("Social Media Activity!!!");
+        setTitle("Social Media Activity!!");
 
         toolbar = findViewById(R.id.myToolbar);
         setSupportActionBar(toolbar);

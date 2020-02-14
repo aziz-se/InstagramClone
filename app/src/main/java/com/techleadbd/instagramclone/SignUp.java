@@ -91,12 +91,9 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                         @Override
                         public void done(ParseException e) {
                             if (e == null) {
-                                Toast.makeText(SignUp.this, appUser.getUsername()+" is signed up",Toast.LENGTH_LONG).show();
-                                transitionToSocialMediaActivity();
-                                //FancyToast.makeText(SignUp.this, appUser.getUsername() + "is signed up", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true);
+                                FancyToast.makeText(SignUp.this, appUser.getUsername() + "is signed up", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
                             } else {
-                                Toast.makeText(SignUp.this, appUser.getUsername()+"fill up the above information",Toast.LENGTH_LONG).show();
-                                //FancyToast.makeText(SignUp.this, e.getMessage(), FancyToast.LENGTH_LONG, FancyToast.ERROR, true);
+                                FancyToast.makeText(SignUp.this, e.getMessage(), FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
                             }
                             progressDialog.dismiss();
                         }
