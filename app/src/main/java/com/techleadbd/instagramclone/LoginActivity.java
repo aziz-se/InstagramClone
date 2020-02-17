@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         @Override
                         public void done(ParseUser user, ParseException e) {
                             if (user != null && e == null) {
-                                FancyToast.makeText(LoginActivity.this, user.getUsername() + "is logged in successfully", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                FancyToast.makeText(LoginActivity.this, user.getUsername() + " is logged in successfully!!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
                                 transitionToSocialMediaActivity();
                             }
                         }
@@ -79,5 +79,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void transitionToSocialMediaActivity(){
         Intent intent = new Intent(LoginActivity.this, SocialMediaActivity.class);
         startActivity(intent);
+        finish();
     }
 }
